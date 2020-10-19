@@ -1,2 +1,2 @@
 # House
-https://rushxxx.github.io/house
+https://rushxxx.github.io/House
