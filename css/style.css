@@ -178,6 +178,8 @@ section {
 .header .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .header-logo {
@@ -202,6 +204,155 @@ section {
     padding: 16px;
     background-color: #D20000;
 }
+
+/* menu */
+
+/*burger start*/
+.menu-burger {
+    display: none;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #fff;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-burger:hover span:before {
+    top: 10px;
+}
+
+.menu-burger:hover span:after {
+    bottom: 10px;
+}
+
+.menu-burger span{
+    width: 24px;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    transition: .3s;
+}
+
+.menu-burger span:before,
+.menu-burger span:after {
+    position: absolute;
+    content: "";
+    width: 24px;
+    border-bottom: 1px solid #fff;
+    transition: .1s;
+}
+
+.menu-burger span:before {
+    top: 7px;
+}
+
+.menu-burger span:after {
+    bottom: 7px;
+}
+
+.menu-burger.active span {
+    width: 0;
+}
+
+.menu-burger.active span:before {
+    width: 0;
+}
+/*burger end*/
+
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.menu ul,
+.menu li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu > ul {
+    display: flex;
+}
+
+.menu > ul > li {
+    position: relative;
+}
+
+.menu > ul > li:last-child {
+    margin: 0;
+}
+
+.menu a:hover {
+    color: #EB5757;
+}
+
+.menu > ul > li:hover .sub-menu{
+    opacity: 1;
+    z-index: 1;
+}
+
+.sub-menu {
+    width: 100vw;
+    position: absolute;
+    opacity: 0;
+    z-index: -10;
+    transition: .2s;
+}
+
+
+@media screen and (max-width: 1200px){
+    .menu-burger {
+        display: flex;
+        /*position: absolute;*/
+        /*top: 10px;*/
+        /*right: 10px;*/
+        z-index: 20;
+    }
+
+    .menu {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        font-size: 7vw;
+        background-color: #000;
+        transition: .3s;
+    }
+
+    .menu a {
+        margin: 10px 0;
+        display: block;
+    }
+
+    .menu.active {
+        left: 0;
+
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .menu .sub-menu {
+        position: initial;
+        margin-left: 20px;
+    }
+
+}
+
+/*menu end*/
+
 /*header end*/
 
 
@@ -280,7 +431,7 @@ section {
 }
 
 .services-item {
-    padding-bottom: 18px;
+    padding: 15px 0 10px;
     border-bottom: 1px solid #c4c4c4;
     display: flex;
     justify-content: space-between;
@@ -295,6 +446,8 @@ section {
     font-weight: 900;
     font-size: 32px;
     line-height: 120%;
+    margin-left: 10px;
+    white-space: nowrap;
 }
 /* services end*/
 
@@ -314,20 +467,26 @@ section {
 }
 
 .advantage .section-title {
-    margin-bottom: 128px;
+    margin-bottom: 64px;
 }
 
 .advantage-card-list {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 96px 190px;
+    /*display: grid;*/
+    /*grid-template-rows: repeat(2, 1fr);*/
+    /*grid-template-columns: repeat(3, 1fr);*/
+    /*grid-gap: 96px 190px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .advantage-card {
+    width: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    margin-bottom: 64px;
 }
 
 .advantage-card-num {
@@ -346,12 +505,11 @@ section {
 }
 
 .advantage-card-text {
-    text-align: center;
 }
 
 .advantage-button {
     display: block;
-    margin: 128px auto 0;
+    margin: 64px auto 0;
 }
 /* advantage end*/
 
@@ -444,5 +602,109 @@ section {
 .footer-logo {
     margin-bottom: 32px;
 }
-/* footer end*/
+/* footer end */
 
+
+
+/* adaptive media */
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .section-title {
+        font-size: 5vw;
+    }
+
+    .header .phone-link {
+        font-size: 4vw;
+    }
+
+    .hero-title,
+    .hero-title-transparent {
+        font-size: 7vw;
+    }
+
+    .services-text {
+        font-size: 2.5vw;
+    }
+
+    .services-price {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services-text,
+    .services-price {
+        font-size: 20px;
+    }
+
+    .advantage-card {
+        width: 45%;
+    }
+
+    .callback-form {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .callback-form-title {
+        font-size: 6vw;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    section {
+        padding: 24px 0;
+    }
+
+    .section-name {
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .header .container {
+        flex-wrap: wrap;
+    }
+
+    .header .phone-link {
+        order: 2;
+        font-size: 22px;
+        margin-left: auto;
+    }
+
+    .services-title {
+        font-size: 20px;
+        margin: 32px 0 12px;
+    }
+
+    .services-text,
+    .services-price {
+        font-size: 16px;
+    }
+
+    .advantage .section-title {
+        margin-bottom: 32px;
+    }
+
+    .advantage-card {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+
+    .advantage-card-num,
+    .advantage-card-title {
+        margin-bottom: 12px;
+    }
+
+    .advantage-button {
+        margin: 0;
+    }
+}
