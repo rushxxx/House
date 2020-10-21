@@ -113,6 +113,7 @@ button.secondary {
     text-transform: uppercase;
     padding: 20px 55px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 button.primary {
@@ -320,7 +321,7 @@ section {
     .menu {
         width: 100%;
         position: absolute;
-        top: 0;
+        top: -20px;
         left: -100%;
         font-size: 7vw;
         background-color: #000;
@@ -443,6 +444,7 @@ section {
 }
 
 .services-price {
+    display: none;
     font-weight: 900;
     font-size: 32px;
     line-height: 120%;
@@ -456,6 +458,22 @@ section {
 
 .about {
     background-image: url(../img/about_bg.jpg);
+}
+
+.about-pic-wrapper {
+    width: 400px;
+    float: right;
+    margin-top: -164px;
+    margin-left: 64px;
+}
+
+.about .section-title {
+    margin-bottom: 120px;
+}
+
+.about-text {
+    max-width: 375px;
+    margin-bottom: 32px;
 }
 /* about end*/
 
@@ -487,6 +505,13 @@ section {
     align-items: center;
     text-align: center;
     margin-bottom: 64px;
+    padding: 10px;
+    transition: .2s;
+}
+
+.advantage-card:hover {
+    background-color: #d20000;
+    color: #fff;
 }
 
 .advantage-card-num {
@@ -498,13 +523,21 @@ section {
     border: 1px solid #bdbdbd;
     border-radius: 50%;
     margin-bottom: 32px;
+    background-color: #fff;
+    color: #000;
 }
 
 .advantage-card-title{
     margin-bottom: 24px;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 150%;
 }
 
 .advantage-card-text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
 }
 
 .advantage-button {
@@ -529,26 +562,144 @@ section {
     max-width: 765px;
     display: flex;
     flex-direction: column;
-    padding: 96px 194px;
+    padding: 96px;
     background-color: #fff;
 }
 
 .callback-form-title {
     font-weight: 900;
-    font-size: 48px;
+    font-size: 42px;
     line-height: 140%;
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #403D37;
+    margin-bottom: 48px;
+}
+
+.callback-form input {
+    border: none;
+    border-bottom:2px solid #c4c4c4
+}
+
+.callback-form button {
+    margin-top: 48px;
 }
 /*callback end*/
+
+
+/*popup-form start*/
+
+.popup-form-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    opacity: 0;
+    background-color: #fff;
+    padding: 40px;
+}
+.popup-form-wrapper.active{
+    background-color: #fff;
+    z-index: 100;
+    opacity: 1;
+}
+
+.popup-form-shadow {
+    display: none;
+}
+
+.popup-form-shadow.active{
+    display: block;
+        position: fixed;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 99;
+        background-color: rgba(0,0,0,.8);
+}
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.popup-form input {
+    margin-bottom: 20px;
+}
+.popup-form-title {
+    margin-bottom: 20px;
+}
+.popup-form-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+/*popup-form end*/
 
 
 /*review start*/
 
 .review {
+    background-color: #e5e5e5;
 }
+
+.review .container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.review-title-wrapper {
+    width: 40%;
+}
+
+.review-button {
+    margin-top: 64px;
+}
+
+.review-slider {
+    width: 60%;
+}
+
+.review-card {
+    position: relative;
+}
+
+.review-card-pic-wrapper {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #838383;
+    z-index: 0;
+}
+
+.review-card-desc-wrapper {
+    padding-top: 64px;
+    padding-left: 106px;
+    position: relative;
+    z-index: 3;
+}
+
+.review-card-date {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 100%;
+    margin-bottom: 16px;
+}
+
+.review-card-name {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 120%;
+    margin-bottom: 16px;
+}
+
 /*review end*/
 
 /*catalog start*/
@@ -557,6 +708,13 @@ section {
     display: none;
 }
 /*catalog end*/
+
+/*contacts start*/
+
+.map {
+    position: absolute;
+}
+/*contacts end*/
 
 /* footer start*/
 
@@ -634,6 +792,17 @@ section {
     .services-price {
         font-size: 2.5vw;
     }
+
+    .about-pic-wrapper {
+        margin-top: -64px;
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .map {
+        position: initial;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -646,6 +815,15 @@ section {
         width: 45%;
     }
 
+    .about .section-title {
+        margin-bottom: 32px;
+    }
+
+    .about-pic-wrapper {
+        margin-top: 0;
+        margin-left: 32px;
+    }
+
     .callback-form {
         max-width: 100%;
         padding: 20px;
@@ -654,6 +832,15 @@ section {
     .callback-form-title {
         font-size: 6vw;
     }
+
+    .review-title-wrapper {
+        width: 100%;
+        margin-bottom: 32px;
+    }
+    .review-slider {
+        width: 100%;
+    }
+
 
 }
 
