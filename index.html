@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Дома и домики</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/fonts.css">
 </head>
@@ -16,22 +20,22 @@
 			<nav class="menu">
 				<ul>
 					<li>
-						<a href="#">О компании</a>
+						<a href="#about">О компании</a>
 					</li>
 					<li>
-						<a href="#">Преимущества</a>
+						<a href="#advantage">Преимущества</a>
 					</li>
 					<li>
-						<a href="#">Направления</a>
+						<a href="#services">Направления</a>
+					</li>
+<!--					<li>-->
+<!--						<a href="#catalog">Каталог</a>-->
+<!--					</li>-->
+					<li>
+						<a href="#review">Отзывы</a>
 					</li>
 					<li>
-						<a href="#">Каталог</a>
-					</li>
-					<li>
-						<a href="#">Отзывы</a>
-					</li>
-					<li>
-						<a href="#">Контакты</a>
+						<a href="#contacts">Контакты</a>
 					</li>
 				</ul>
 			</nav>
@@ -49,15 +53,15 @@
 	<main class="main">
 
 		<section class="hero">
-			<img src="img/hero_bg.jpg" alt="Юлдаш" class="hero-bg">
+			<img src="img/hero_bg.jpg" alt="Дома и домики" class="hero-bg">
 			<div class="container">
 				<h2 class="hero-title">Команда<br>профессионалов</h2>
 				<h2 class="hero-title-transparent">В сфере<br>недвижимости</h2>
-				<button class="hero-button primary">Заказать консультацию</button>
+				<button class="hero-button primary popup-form-open">Заказать консультацию</button>
 			</div>
 		</section><!--hero-->
 
-		<section class="services">
+		<section class="services" id="services">
 			<div class="container">
 				<h3 class="section-name">Услуги</h3>
 				<h2 class="section-title">Мы работаем <br>в таких направлениях</h2>
@@ -133,20 +137,22 @@
 			</div>
 		</section><!--services-->
 
-		<section class="about bg-pic">
+		<section class="about bg-pic" id="about">
 			<div class="container">
 				<h3 class="section-name">О компании</h3>
-				<h2 class="section-title">"Юлдаш" поможет Вам
+
+				<h2 class="section-title">"Дома и домики" поможет Вам
 					решить любые вопросы на рынке недвижимости</h2>
-				<p class="about-text">Строительная Компания «Дома и домики» специализируется на строительстве загородных домов, поможет Вам решить любые вопросы на рынке недвижимости. Если вы приняли решение купить или продать недвижимость в Республике Башкортостан, то мы обязательно Вам в этом поможем.</p>
-				<p class="about-text">Профессиональный коллектив агентства предложит вам оптимальное решение из элитных новостроек, ЖК, лофтов и клубных домов согласно вашим индивидуальным пожеланиям.</p>
 				<div class="about-pic-wrapper">
 					<img src="img/about.jpg" alt="о нас" class="about-pic">
 				</div>
+				<p class="about-text">Строительная Компания «Дома и домики» специализируется на строительстве загородных домов, поможет Вам решить любые вопросы на рынке недвижимости. Если вы приняли решение купить или продать недвижимость в Республике Башкортостан, то мы обязательно Вам в этом поможем.</p>
+				<p class="about-text">Профессиональный коллектив агентства предложит вам оптимальное решение из элитных новостроек, ЖК, лофтов и клубных домов согласно вашим индивидуальным пожеланиям.</p>
+
 			</div>
 		</section><!--about-->
 
-		<section class="advantage">
+		<section class="advantage" id="advantage">
 			<div class="container">
 				<h3 class="section-name">Наши преимущества</h3>
 				<h2 class="section-title">Почему вам стоит обратиться к нам?</h2>
@@ -182,7 +188,7 @@
 						<p class="advantage-card-text">Безопасные схемы. Проверенные документы. Разъяснение клиенту всех этапов сделки. Юридическое оформление сделки.</p>
 					</li>
 				</ul>
-				<button class="advantage-button primary">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+				<button class="advantage-button primary popup-form-open">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
 			</div>
 		</section><!--advantage-->
 
@@ -196,32 +202,74 @@
 					<input type="text" id="e-mail">
 					<label for="text" class="callback-form-label">Ваше сообщение</label>
 					<input type="text" id="text">
-					<button class="form-button primary">Отправить</button>
+					<button class="form-button primary" id="callback-button">Отправить</button>
 				</form>
 			</div>
 		</div><!--callback-->
 
-		<section class="review">
+		<div class="popup-form-wrapper">
+			<h3 class="popup-form-title">Напишите свой номер, мы вам перезвоним</h3>
+			<form class="popup-form" action="" id="popup-form">
+				<label for="phone" class="popup-form-label">Ваш телефон</label>
+				<input type="tel" id="phone" required>
+				<button class="form-button primary" id="popup-button">Отправить</button>
+			</form>
+			<div class="popup-form-close">X</div>
+		</div>
+		<div class="popup-form-shadow"></div>
+
+		<section class="review" id="review">
 			<div class="container">
-				<h3 class="section-name">Отзывы</h3>
-				<h2 class="section-title">Что пишут наши клиенты</h2>
-				<button class="review-button primary">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
-				<div class="review-slider">
-					<div class="review-card">
-						<div class="review-card-date">01.01.2020</div>
-						<div class="review-card-name">Светлана</div>
-						<div class="review-card-text">Спасибо сотрудникам, что помогли найти жилье! Если бы не они, плакали бы мы и без дома и без задатка! Продавец втихушку продал свой дом, а нам некуда было податься с маленьким ребенком. В ЮЛДАШе помогли все таки добиться справедливости и вернуть задаток в двойном размере. Продавец оказался на редкость мерзким типом. Спасибо, ЮЛДАШ, теперь у нас есть крыша над головой!</div>
+				<div class="review-title-wrapper">
+					<h3 class="section-name">Отзывы</h3>
+					<h2 class="section-title">Что пишут<br>наши клиенты</h2>
+					<button class="review-button primary popup-form-open">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+				</div>
+
+				<div class="review-slider swiper-container">
+					<div class="swiper-wrapper">
+
+						<div class="review-card swiper-slide">
+							<div class="review-card-pic-wrapper">
+								<!--							<img src="review_01.jpg" alt="review" class="review-card-pic">-->
+							</div>
+							<div class="review-card-desc-wrapper">
+								<div class="review-card-date">01.01.2020</div>
+								<div class="review-card-name">Светлана</div>
+								<div class="review-card-text">Спасибо сотрудникам, что помогли найти жилье! Если бы не они, плакали бы мы и без дома и без задатка! Продавец втихушку продал свой дом, а нам некуда было податься с маленьким ребенком. В "Дома и домики" помогли все таки добиться справедливости и вернуть задаток в двойном размере. Продавец оказался на редкость мерзким типом. Спасибо, "Дома и домики", теперь у нас есть крыша над головой!</div>
+							</div>
+						</div>
+
+						<div class="review-card swiper-slide">
+							<div class="review-card-pic-wrapper">
+								<!--							<img src="review_01.jpg" alt="review" class="review-card-pic">-->
+							</div>
+							<div class="review-card-desc-wrapper">
+								<div class="review-card-date">01.01.2020</div>
+								<div class="review-card-name">Светлана</div>
+								<div class="review-card-text">Спасибо сотрудникам, что помогли найти жилье! Если бы не они, плакали бы мы и без дома и без задатка! Продавец втихушку продал свой дом, а нам некуда было податься с маленьким ребенком. В "Дома и домики" помогли все таки добиться справедливости и вернуть задаток в двойном размере. Продавец оказался на редкость мерзким типом. Спасибо, "Дома и домики", теперь у нас есть крыша над головой!</div>
+							</div>
+						</div>
+
+						<div class="review-card swiper-slide">
+							<div class="review-card-pic-wrapper">
+								<!--							<img src="review_01.jpg" alt="review" class="review-card-pic">-->
+							</div>
+							<div class="review-card-desc-wrapper">
+								<div class="review-card-date">01.01.2020</div>
+								<div class="review-card-name">Светлана</div>
+								<div class="review-card-text">Спасибо сотрудникам, что помогли найти жилье! Если бы не они, плакали бы мы и без дома и без задатка! Продавец втихушку продал свой дом, а нам некуда было податься с маленьким ребенком. В "Дома и домики" помогли все таки добиться справедливости и вернуть задаток в двойном размере. Продавец оказался на редкость мерзким типом. Спасибо, "Дома и домики", теперь у нас есть крыша над головой!</div>
+							</div>
+						</div>
+
 					</div>
-					<div class="review-card">
-						<div class="review-card-date">01.01.2020</div>
-						<div class="review-card-name">Светлана</div>
-						<div class="review-card-text">Спасибо сотрудникам, что помогли найти жилье! Если бы не они, плакали бы мы и без дома и без задатка! Продавец втихушку продал свой дом, а нам некуда было податься с маленьким ребенком. В ЮЛДАШе помогли все таки добиться справедливости и вернуть задаток в двойном размере. Продавец оказался на редкость мерзким типом. Спасибо, ЮЛДАШ, теперь у нас есть крыша над головой!</div>
-					</div>
+
+
 				</div>
 			</div>
 		</section><!--review-->
 
-		<section class="catalog">
+		<section class="catalog" id="catalog">
 			<div class="container">
 				<h3 class="section-name">Каталог</h3>
 				<h2 class="section-title">Лучшие предложения для вас</h2>
@@ -240,11 +288,16 @@
 			</div>
 		</section><!--catalog-->
 
-		<section class="contacts">
+		<section class="contacts" id="contacts">
 			<div class="container">
 				<h3 class="section-name">Контакты</h3>
 				<h2 class="section-title">Как нас найти</h2>
-				<div class="map">map</div>
+				<div class="map">
+					<div style="position:relative;overflow:hidden;">
+						<a href="https://yandex.ru/maps/org/yuldash/1015745346/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Юлдаш</a>
+						<iframe src="https://yandex.ru/map-widget/v1/-/CCQ~yOWIKB" width="560" height="400" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+					</div>
+				</div>
 			</div>
 		</section><!--contacts-->
 
@@ -257,13 +310,17 @@
 			<h3 class="footer-title">Наши офисы</h3>
 			<a href="!#" class="footer-address">Уфа ул. Степана Кувыкина 23</a>
 			<a href="tel:+73472663430" class="footer-phone">+7 (347) 266-34-30</a>
-			<button href="#callback-form" class="footer-button primary">Заказать звонок</button>
+			<button class="footer-button primary popup-form-open">Заказать звонок</button>
 			<a href="#" class="footer-logo">
 				<img src="img/logo.png" alt="Дома и домики" class="logo">
 			</a>
 			<div class="copy">© 2020 Дома и домики</div>
 		</div>
 	</footer>
+
+	<!--	swiper-->
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 	<script src="js/common.js"></script>
 </body>
